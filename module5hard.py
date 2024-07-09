@@ -1,10 +1,10 @@
-import hashlib
+
 import time
 
 class User:
     def __init__(self, nickname, password, age):
         self.nickname = nickname
-        self.password = hashlib.sha256(password.encode()).hexdigest()
+        self.password = hash(password)
         self.age = age
 
     def __str__(self):
@@ -29,7 +29,7 @@ class UrTube:
 
     def log_in(self, nickname, password):
         for user in self.users:
-            if user.nickname == nickname and user.password == hashlib.sha256(password.encode()).hexdigest():
+            if user.nickname == nickname and user.password == hash(password):
                 self.current_user = user
                 return
         print("Неверное имя пользователя или пароль")
@@ -68,7 +68,7 @@ class UrTube:
             return
         for i in range(video.duration):
             print(i+1, end=' ')
-            time.sleep(1)
+            time.sleep(+1)
         print("Конец видео")
 
 # Код для проверки
