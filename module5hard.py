@@ -16,7 +16,6 @@ class Video:
         self.title = title
         self.duration = duration
         self.adult_mode = adult_mode
-        self.time_now = 0
 
     def __str__(self):
         return self.title
@@ -27,6 +26,7 @@ class UrTube:
         self.users = []
         self.videos = []
         self.current_user = None
+        self.time_now = 0
 
     def log_in(self, nickname, password):
         for user in self.users:
@@ -68,7 +68,7 @@ class UrTube:
             print("Вам нет 18 лет, пожалуйста покиньте страницу")
             return
         for i in range(video.duration):
-            video.duration += 1
+            self.time_now += 1
             print(i + 1, end=' ')
             time.sleep(1)
         print("Конец видео")
