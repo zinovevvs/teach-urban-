@@ -1,5 +1,5 @@
-
 import time
+
 
 class User:
     def __init__(self, nickname, password, age):
@@ -16,6 +16,7 @@ class Video:
         self.title = title
         self.duration = duration
         self.adult_mode = adult_mode
+        self.time_now = 0
 
     def __str__(self):
         return self.title
@@ -67,9 +68,11 @@ class UrTube:
             print("Вам нет 18 лет, пожалуйста покиньте страницу")
             return
         for i in range(video.duration):
-            print(i+1, end=' ')
-            time.sleep(+1)
+            video.duration += 1
+            print(i + 1, end=' ')
+            time.sleep(1)
         print("Конец видео")
+
 
 # Код для проверки
 ur = UrTube()
@@ -96,4 +99,3 @@ print(ur.current_user)
 
 # Попытка воспроизведения несуществующего видео
 ur.watch_video('Лучший язык программирования 2024 года!')
-
