@@ -1,60 +1,32 @@
-# class Car:
-#     price = 1000000
-#
-#     def horse_powers(self):
-#         return self.horse_powers
-#
-#
-# class Nissan:
-#     price = 350000
-#
-#     def __init__(self):
-#         self.Nissan = 250
-#
-#     def horse_powers(self):
-#         return self.Nissan.horse_powers
-#
-#
-# class Kia:
-#     price = 4500000
-
-# def __init__(self):
-#     self.Kia = 180
-#
-# def horse_powers(self):
-#     return self.Kia.horse_powers
-
 class Animal:
+    alive = True
+    fed = False
+
     def __init__(self, name):
         self.name = name
-        self.alive = True
-        self.fed = False
+
+    def eat(self, food):
+        if isinstance(food, Plant) and food.edible:
+            print(f"{self.name} съел {food.name}")
+            self.fed = True
+        else:
+            print(f"{self.name} не стал есть {food.name}")
+            self.alive = False
 
 
 class Plant:
+    edible = False
+
     def __init__(self, name):
         self.name = name
-        self.edible = False
 
 
 class Mammal(Animal):
-    def eat(self, food):
-        if isinstance(food, Plant) and food.edible:
-            print(f"{self.name} съел {food.name}")
-            self.fed = True
-        else:
-            print(f"{self.name} не стал есть {food.name}")
-            self.alive = False
+    pass
 
 
 class Predator(Animal):
-    def eat(self, food):
-        if isinstance(food, Plant) and food.edible:
-            print(f"{self.name} съел {food.name}")
-            self.fed = True
-        else:
-            print(f"{self.name} не стал есть {food.name}")
-            self.alive = False
+    pass
 
 
 class Flower(Plant):
@@ -81,3 +53,4 @@ a1.eat(p1)
 a2.eat(p2)
 print(a1.alive)
 print(a2.fed)
+
