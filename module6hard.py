@@ -34,8 +34,8 @@ class Figure:
         if len(new_sides) != self.sides_count:
             new_sides = [1] * self.sides_count
         else:
-            self.__is_valid_sides(*new_sides)
-            self.__sides = list(new_sides)
+            if self.__is_valid_sides(*new_sides):
+                self.__sides = list(new_sides)
 
 
 class Circle(Figure):
@@ -66,7 +66,7 @@ class Cube(Figure):
     sides_count = 12
 
     def __init__(self, color, side):
-        super().__init__(color, side)
+        super().__init__(color, *([side] * self.sides_count))
         self.__sides = [side] * self.sides_count
 
     def get_volume(self):
